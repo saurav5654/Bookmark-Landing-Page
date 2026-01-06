@@ -1,0 +1,733 @@
+/* Basic Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rubik', sans-serif; /* A common font for Frontend Mentor designs */
+    line-height: 1.6;
+    color: #4a4a4a; /* Dark gray for text */
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: hsl(231, 69%, 60%); /* Soft Blue */
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #fff;
+    color: hsl(231, 69%, 60%);
+    border-color: hsl(231, 69%, 60%);
+}
+
+.btn-secondary {
+    background-color: #f0f0f0; /* Light Gray */
+    color: #4a4a4a;
+}
+
+.btn-secondary:hover {
+    background-color: #fff;
+    color: #4a4a4a;
+    border-color: #4a4a4a;
+}
+
+.btn-red {
+    background-color: hsl(0, 94%, 66%); /* Soft Red */
+    color: #fff;
+}
+
+.btn-red:hover {
+    background-color: #fff;
+    color: hsl(0, 94%, 66%);
+    border-color: hsl(0, 94%, 66%);
+}
+
+/* Header */
+.header {
+    padding: 20px 0;
+    position: relative; /* Needed for z-index context if nav is fixed */
+    z-index: 1001; /* Ensure header is above other content */
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-nav .nav-list {
+    display: flex;
+    gap: 30px;
+}
+
+.main-nav .nav-link {
+    font-weight: bold;
+    color: #4a4a4a;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.main-nav .nav-link:hover {
+    color: hsl(0, 94%, 66%); /* Soft Red */
+}
+
+.btn-login {
+    background-color: hsl(0, 94%, 66%); /* Soft Red */
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 5px;
+}
+
+.btn-login:hover {
+    background-color: #fff;
+    color: hsl(0, 94%, 66%);
+    border-color: hsl(0, 94%, 66%);
+}
+
+/* Mobile Navigation Toggle */
+.mobile-nav-toggle {
+    display: none; /* Hidden by default on desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0; /* Ensure no extra padding around the image */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.mobile-nav-toggle img {
+    width: 24px;
+    height: 18px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero-section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-content {
+    max-width: 500px;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #242424;
+}
+
+.hero-content p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.hero-image {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Features Section */
+.features-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #242424;
+}
+
+.section-description {
+    max-width: 500px;
+    margin: 0 auto 50px auto;
+    font-size: 1.1em;
+}
+
+.features-tabs {
+    margin-top: 50px;
+}
+
+.tab-list {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 40px;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    color: #777;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.tab-button:hover {
+    color: hsl(0, 94%, 66%); /* Soft Red */
+}
+
+.tab-button.active {
+    color: #242424;
+}
+
+.tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: hsl(0, 94%, 66%); /* Soft Red */
+}
+
+.tab-content {
+    display: none; /* Hidden by default, JavaScript will toggle 'active' */
+    text-align: left;
+    padding: 40px 0;
+    align-items: center;
+    gap: 80px;
+}
+
+.tab-content.active {
+    display: flex;
+}
+
+.tab-content .tab-image {
+    flex: 1;
+}
+
+.tab-content .tab-text {
+    flex: 1;
+}
+
+.tab-content h3 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #242424;
+}
+
+.tab-content p {
+    margin-bottom: 30px;
+}
+
+/* Download Section */
+.download-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.browser-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.browser-cards .card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 40px 20px;
+    text-align: center;
+    flex: 1;
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.browser-cards .card img {
+    margin-bottom: 20px;
+}
+
+.browser-cards .card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #242424;
+}
+
+.browser-cards .card p {
+    margin-bottom: 25px;
+    font-size: 0.9em;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.faq-items {
+    max-width: 600px;
+    margin: 50px auto;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.faq-item {
+    border-bottom: 1px solid #eee;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 20px 0;
+    font-size: 1.1em;
+    font-weight: normal;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #242424;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: hsl(0, 94%, 66%); /* Soft Red */
+}
+
+.faq-answer {
+    text-align: left;
+    padding: 0 0 20px 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.faq-answer.active {
+    max-height: 200px; /* Adjust based on content */
+}
+
+.more-info-btn {
+    margin-top: 40px;
+}
+
+/* CTA Section */
+.cta-section {
+    background-color: hsl(231, 69%, 60%); /* Soft Blue */
+    color: #fff;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.cta-section .container {
+    max-width: 500px;
+}
+
+.cta-join {
+    font-size: 0.9em;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.cta-title {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.cta-form {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.cta-form input[type="email"] {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+}
+
+.cta-form button {
+    flex-shrink: 0;
+}
+
+/* Footer */
+.footer {
+    background-color: hsl(229, 31%, 21%); /* Very Dark Blue */
+    color: #fff;
+    padding: 40px 0;
+}
+
+
+/* Increase vertical padding for a more spacious look */
+.footer {
+    padding: 50px 0;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Ensure logo and nav links are aligned and spaced */
+.footer-nav {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.footer-list {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-list a {
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.footer-list a:hover {
+    color: hsl(0, 94%, 66%); /* Soft Red */
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+/* Ensure social icons are clickable and have consistent size */
+.social-links a {
+    display: flex; /* To make the entire area clickable and center the icon */
+}
+
+.social-links img {
+    width: 24px;
+    height: 24px;
+    transition: filter 0.3s ease;
+}
+
+/* Apply the hover filter to change white social icons to soft red */
+.social-links a:hover img {
+    /* This filter converts white (#FFF) to hsl(0, 94%, 66%) (Soft Red) */
+    /* It's a common trick for white SVGs loaded as <img> */
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(330deg) brightness(118%) contrast(119%);
+}
+
+/* FAQ Arrow Icon */
+.faq-question .arrow-icon path {
+    transition: transform 0.3s ease;
+}
+
+.faq-question[aria-expanded="true"] .arrow-icon path {
+    transform: rotate(180deg); /* Rotate the arrow when expanded */
+    /* Change arrow stroke color to Soft Red when active for visual feedback */
+    stroke: hsl(0, 94%, 66%);
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        gap: 20px;
+        flex-direction: row; /* Keep logo and toggle on one row */
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Mobile Navigation Overlay */
+    .main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(36, 42, 69, 0.95); /* Dark overlay with transparency */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%); /* Start off-screen to the right */
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000; /* Lower than header */
+    }
+
+    .main-nav.active {
+        transform: translateX(0); /* Slide in */
+    }
+
+    /* Nav list within the mobile overlay */
+    .main-nav .nav-list {
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+        width: 100%;
+        padding: 0;
+    }
+
+    .main-nav .nav-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 15px;
+        padding-top: 15px;
+    }
+
+    .main-nav .nav-item:first-child {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .main-nav .nav-link {
+        color: #fff; /* White links on dark background */
+        font-size: 1.2em;
+    }
+
+    .main-nav .nav-link.btn-login {
+        background-color: transparent; /* Remove red background for login button in mobile nav */
+        border: 2px solid #fff; /* White border */
+        color: #fff;
+        width: 80%; /* Make button wider */
+        margin: 20px auto 0 auto; /* Center button */
+        padding: 15px 0;
+    }
+
+    .main-nav .nav-link.btn-login:hover {
+        background-color: #fff;
+        color: hsl(0, 94%, 66%);
+        border-color: hsl(0, 94%, 66%);
+    }
+    
+    .mobile-nav-toggle {
+        display: block; /* Show hamburger on mobile */
+    }
+
+    .hero-section .container,
+    .tab-content.active {
+        flex-direction: column-reverse; /* Image above text for hero, text above image for features (default) */
+        text-align: center;
+    }
+
+    /* Styling for the hamburger icon when nav is open */
+    .mobile-nav-toggle[aria-expanded="true"] img {
+        /* Change color to indicate active state */
+        filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(330deg) brightness(118%) contrast(119%); /* Soft Red */
+        /* Optional: Rotate the hamburger icon to simulate a close icon */
+        /* transform: rotate(90deg); */
+    }
+
+    .mobile-nav-toggle img {
+        transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out; /* Add transition for smooth changes */
+    }
+
+    /* Prevent body scroll when nav is open */
+    body.no-scroll {
+        overflow: hidden;
+    }
+
+    /* Change logo color when mobile nav is active */
+    .header.mobile-nav-active .logo img {
+        filter: brightness(0) invert(1); /* Makes a dark SVG white */
+    }
+
+    /* Adjust hero section for mobile */
+    .hero-section {
+        padding: 40px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2em;
+        text-align: center;
+    }
+
+    .hero-image, .tab-image {
+        margin-bottom: 30px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn {
+        width: 100%; /* Make buttons full width */
+    }
+
+    /* Adjust features section for mobile */
+    .features-section {
+        padding: 40px 0;
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+
+    .section-description {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+
+    .tab-list {
+        flex-direction: column;
+        border-bottom: none;
+    }
+
+    .tab-button {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .tab-button.active::after {
+        width: 50%;
+        left: 25%;
+    }
+
+    .tab-content.active {
+        flex-direction: column; /* Image below text for features on mobile */
+        gap: 40px;
+    }
+
+    .tab-content .tab-text h3 {
+        font-size: 1.5em;
+    }
+
+    /* Adjust download section for mobile */
+    .tab-list {
+        flex-direction: column;
+        border-bottom: none;
+    }
+
+    .tab-button {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .tab-button.active::after {
+        width: 50%;
+        left: 25%;
+    }
+
+    .download-section {
+        padding: 40px 0;
+    }
+
+    .browser-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .browser-cards .card {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .browser-cards .card {
+        margin-bottom: 30px;
+    }
+
+    .cta-form {
+        flex-direction: column;
+    }
+
+    /* Adjust FAQ section for mobile */
+    .faq-section {
+        padding: 40px 0;
+    }
+
+    /* Adjust CTA section for mobile */
+    .cta-section {
+        padding: 40px 0;
+    }
+
+    .cta-title {
+        font-size: 1.8em;
+    }
+
+    .cta-form input[type="email"] {
+        width: 100%;
+    }
+
+    .cta-form button {
+        width: 100%;
+    }
+    .footer .container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-list {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .social-links {
+        margin-top: 20px;
+    }
+}
